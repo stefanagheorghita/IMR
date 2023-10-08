@@ -35,11 +35,11 @@ public class CactusIdleAndAttackTransition : MonoBehaviour
         distance = Vector3.Distance(firstCactus.transform.position, secondCactus.transform.position);
         if (distance <= 25.0f)
         {
-            animator.SetBool("Attack", true);
+            firstCactusAnimator.SetBool("Attack", true);
         }
         else
         {
-            animator.SetBool("Attack", false);
+            firstCactusAnimator.SetBool("Attack", false);
         }
     }
 }
