@@ -17,9 +17,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.18807971
   m_TransitionOffset: 0
-  m_ExitTime: 0.8469388
+  m_ExitTime: 0.84693885
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -37,6 +37,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2daaf63e682a0f4e8fb3182733ea94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstCactus: {fileID: 0}
+  secondCactus: {fileID: 0}
+  distance: 0
 --- !u!1101 &-1913577794135839503
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -76,7 +79,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
