@@ -24,19 +24,16 @@ public class CactusIdleAndAttackTransition : MonoBehaviour
         if (distance <= 0.25f)
         {
             firstCactusAnimator.SetBool("isAttacking", true);
+            secondCactusAnimator.SetBool("isAttacking", true);
 
         }
         else
         {
             firstCactusAnimator.SetBool("isAttacking", false);
+            secondCactusAnimator.SetBool("isAttacking", false);
 
         }
     }
-       
-    
-
-   
-    
         
 }
 
