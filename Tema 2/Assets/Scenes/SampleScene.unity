@@ -200,10 +200,10 @@ GameObject:
   - component: {fileID: 230232020}
   - component: {fileID: 230232019}
   - component: {fileID: 230232023}
-  - component: {fileID: 230232018}
-  - component: {fileID: 230232024}
   - component: {fileID: 230232025}
-  - component: {fileID: 230232026}
+  - component: {fileID: 230232027}
+  - component: {fileID: 230232028}
+  - component: {fileID: 230232029}
   m_Layer: 0
   m_Name: Dart
   m_TagString: Untagged
@@ -211,20 +211,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &230232018
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230232016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &230232019
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -306,19 +292,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &230232024
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230232016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &230232025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +440,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &230232026
+--- !u!114 &230232027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -476,10 +449,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 230232016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d21b8fa26c3cef45a51269cceb8b02c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ce7039afa61a384baad5341d4ac889a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCalculator: {fileID: 1557383786}
+--- !u!114 &230232028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230232016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe33fce3ac8be1c44980b9bd4e289e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxThrowForce: 50
+--- !u!65 &230232029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230232016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000008, y: 2.0000002, z: 1.0000014}
+  m_Center: {x: 0.00000005960465, y: -5.6551985e-15, z: -0.000000089406974}
 --- !u!1 &643437432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,11 +2024,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 1322653502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44f1926c6f195cc4b9cb6af65f580bc0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cbc2752b29d16547aa9413ce81117ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxThrowForce: 50
   dartPrefab: {fileID: 230232016}
+--- !u!1 &1557383785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1557383787}
+  - component: {fileID: 1557383786}
+  m_Layer: 0
+  m_Name: ScoreCalculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1557383786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557383785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a5fabd122a51744bcaa96d8fc39de5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1557383787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557383785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 4, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1599568916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,7 +2085,6 @@ GameObject:
   - component: {fileID: 1599568919}
   - component: {fileID: 1599568918}
   - component: {fileID: 1599568917}
-  - component: {fileID: 1599568921}
   - component: {fileID: 1599568924}
   - component: {fileID: 1599568923}
   - component: {fileID: 1599568922}
@@ -2132,19 +2174,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!65 &1599568921
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599568916}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.000002, y: 0.0000008087094, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1599568922
 MonoBehaviour:
   m_ObjectHideFlags: 0

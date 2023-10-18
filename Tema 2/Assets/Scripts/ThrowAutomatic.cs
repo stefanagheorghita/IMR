@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DartThrowAutomatic : MonoBehaviour
+public class ThrowAutomatic : MonoBehaviour
 {
     public float maxThrowForce = 50f;
     private float currentThrowForce = 0f;
     public GameObject dartPrefab;
+
+    private Quaternion rotation;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rotation = Quaternion.Euler(90, 0, 0);
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,12 +37,9 @@ public class DartThrowAutomatic : MonoBehaviour
 
     void ThrowDart(float throwForce)
     {
-        Quaternion rotation = Quaternion.Euler(90, 0, 0);
         GameObject dart = Instantiate(dartPrefab, transform.position, rotation);
         AssignRandomColor(dart);
-       // Renderer dartRenderer = dart.GetComponent<Renderer>();
-       // Color randomColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-       // dartRenderer.material.color = randomColor;
+        dart.GetComponent<Dart>().SetThrowPosition(transform.position);
         Rigidbody dartRigidbody = dart.GetComponent<Rigidbody>();
         dartRigidbody.AddForce(transform.forward * throwForce, ForceMode.Impulse);
     }

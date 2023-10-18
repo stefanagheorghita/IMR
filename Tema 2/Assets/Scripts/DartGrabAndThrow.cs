@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-
-public class CustomGrabLogic : MonoBehaviour
+public class DartGrabAndThrow: MonoBehaviour
 {
     private XRGrabInteractable interactable;
     public float maxThrowForce = 50f;
@@ -12,22 +11,20 @@ public class CustomGrabLogic : MonoBehaviour
         interactable.selectEntered.AddListener(OnGrab);
         interactable.selectExited.AddListener(OnRelease);
     }
-
     void OnGrab(SelectEnterEventArgs args)
     {
-       // Debug.Log("Object Grabbed!");
-       currentThrowForce = 0f;
+        currentThrowForce = 0f;
     }
-
     void OnRelease(SelectExitEventArgs args)
     {
-         Rigidbody rb = GetComponent<Rigidbody>();
+        Dart dart = GetComponent<Dart>();
+        Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
+            dart.SetThrowPosition(args.interactorObject.transform.position);
             currentThrowForce = Mathf.Min(currentThrowForce + Time.deltaTime * maxThrowForce * 30, maxThrowForce);
             Vector3 throwDirection = args.interactorObject.transform.forward;
             rb.AddForce(throwDirection * currentThrowForce, ForceMode.Impulse);
         }
-
     }
 }
