@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class ScoreCalculator : MonoBehaviour
 {
-   public int CalculateScore(Vector3 throwPosition, Vector3 collisionPosition)
-   {
-     float distance = Vector3.Distance(throwPosition, collisionPosition);
+    private int score = 0;
 
-     return Mathf.RoundToInt(distance);
-   }
-   
+
+    public int CalculateScore(Vector3 throwPosition, Vector3 collisionPosition)
+    {
+        float distance = Vector3.Distance(throwPosition, collisionPosition);
+        score = score + Mathf.RoundToInt(distance);
+
+        return score;
+    }
+
+
 }
