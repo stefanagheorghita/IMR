@@ -9,6 +9,7 @@ public class Dart : MonoBehaviour
 
     public ScoreCalculator scoreCalculator;
     public ScoreManager scoreManager;
+    private int score = 0;
 
 
     public void SetThrowPosition(Vector3 position)
@@ -37,11 +38,16 @@ public class Dart : MonoBehaviour
         if (collision.gameObject.name.StartsWith("Target"))
         {
             collisionPosition = collision.contacts[0].point;
-            int score = scoreCalculator.CalculateScore(throwPosition, collisionPosition);
+            score = scoreCalculator.CalculateScore(throwPosition, collisionPosition);
+        }
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name.StartsWith("Target"))
+        {
             scoreManager.SetScore(score);
             scoreManager.UpdateScoreText();
         }
     }
-
 }

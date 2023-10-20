@@ -14,16 +14,23 @@ public class ScoreManager : MonoBehaviour
         score = newScore;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = score.ToString() + " POINTS";
-
+        scoreText.text = "Start Game!";
+        StartCoroutine(HideScoreAfterDelay(0.3f));
     }
 
-    // Update is called once per frame
     public void UpdateScoreText()
     {
         scoreText.text = score.ToString() + " POINTS";
+        StartCoroutine(HideScoreAfterDelay(2f));
+    }
+
+    private IEnumerator HideScoreAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Așteaptă pentru o anumită perioadă de timp
+
+        // După perioada de așteptare, ascunde textul
+        scoreText.text = "";
     }
 }
