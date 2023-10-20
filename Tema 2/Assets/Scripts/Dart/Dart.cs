@@ -39,6 +39,8 @@ public class Dart : MonoBehaviour
         {
             collisionPosition = collision.contacts[0].point;
             score = scoreCalculator.CalculateScore(throwPosition, collisionPosition);
+            scoreManager.SetScore(score);
+            scoreManager.UpdateScoreText();
         }
     }
 
@@ -46,8 +48,7 @@ public class Dart : MonoBehaviour
     {
         if (other.gameObject.name.StartsWith("Target"))
         {
-            scoreManager.SetScore(score);
-            scoreManager.UpdateScoreText();
+            
         }
     }
 }

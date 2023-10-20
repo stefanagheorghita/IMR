@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text scoreText;
     private int score = 0;
 
+    private Coroutine coroutine;
+
     public void SetScore(int newScore)
     {
         score = newScore;
@@ -23,14 +25,17 @@ public class ScoreManager : MonoBehaviour
     public void UpdateScoreText()
     {
         scoreText.text = score.ToString() + " POINTS";
-        StartCoroutine(HideScoreAfterDelay(2f));
+         if(coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+
+        coroutine = StartCoroutine(HideScoreAfterDelay(2f));
     }
 
     private IEnumerator HideScoreAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(delay); // Așteaptă pentru o anumită perioadă de timp
-
-        // După perioada de așteptare, ascunde textul
+        yield return new WaitForSeconds(delay);
         scoreText.text = "";
     }
 }
