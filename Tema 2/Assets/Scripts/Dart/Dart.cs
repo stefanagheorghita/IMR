@@ -44,11 +44,4 @@ public class Dart : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name.StartsWith("Target"))
-        {
-            
-        }
-    }
 }
